@@ -1,13 +1,17 @@
 <div align="center">
 
   <h1><code>wasm-sorter</code></h1>
-  
+  <p>
+  Sort algorihm implement in rust, used in Js, print with html/css
+  </p>
   <p>
     <sub>Built with 🦀🕸</sub>
   </p>
 </div>
 
 ## About
+
+
 
 [**📚 Read these documentation if you wish to learn how rust + webassembly work together! 📚**][template-docs]
 
