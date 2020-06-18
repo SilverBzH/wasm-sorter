@@ -9,14 +9,10 @@
   </p>
 </div>
 
-## About
+## 📚 Read these documentation if you wish to learn how rust + webassembly work together! 📚
 
-
-
-[**📚 Read these documentation if you wish to learn how rust + webassembly work together! 📚**][template-docs]
-
-[Rust]: https://www.rust-lang.org/
-[Rust + Webassembly]: https://rustwasm.github.io/docs/book/introduction.html
+[Rust](https://www.rust-lang.org/)
+[Rust + Webassembly](https://rustwasm.github.io/docs/book/introduction.html)
 
 ## 🚴 Usage
 
