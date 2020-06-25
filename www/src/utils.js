@@ -1,4 +1,4 @@
-export function print_bars(data) {
+export function printBars(data) {
     for (var i=0 ; i<data.length ; i++) {
         //create mother div
         var mother_div = document.createElement("div");
@@ -12,7 +12,14 @@ export function print_bars(data) {
         
         mother_div.appendChild(child_div);
         document.querySelector(".canvas-progress-bar").appendChild(mother_div);
-    
-        console.log("create progress bar with data: " + data[i]);
     }
+}
+
+export function getRandomizeData(nb_data, max_value) {
+    var data = new Array();
+    for (var i=0; i<nb_data ; i++) {
+        let d = Math.floor(Math.random() * Math.floor(max_value));
+        data.push(d);
+    }
+    return Uint32Array.from(data);
 }
