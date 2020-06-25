@@ -1,5 +1,10 @@
 export namespace Utils {
     export function printBars(data: Uint32Array, max_value: number) {
+        //Clear the canvas first
+        var canvas = document.getElementById("canvas");
+        canvas.innerHTML = "";
+        
+        //print the new canvas
         for (var i=0 ; i<data.length ; i++) {
             var mother_div = document.createElement("div");
             mother_div.classList.add("progress");

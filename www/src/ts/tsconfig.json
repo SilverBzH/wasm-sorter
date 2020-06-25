@@ -5,6 +5,6 @@
     "files": [
         "./main.ts",
         "./utils.ts",
-        "./button_action.ts",
+        "./printer.ts",
     ]
 }
