@@ -5,7 +5,7 @@ import {SortType} from "wasm-sorter";
 // dropDownListener.addEventListener('click', function() {updateAlgoList()});
 
 export namespace CustomButtons {
-    
+
     export function init() {
         updateAlgoList();
     }
@@ -22,4 +22,3 @@ export namespace CustomButtons {
         }
     }
 }
-
