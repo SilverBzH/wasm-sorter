@@ -38,5 +38,10 @@ export class Printer {
             this.sorter.run(this.sortType);
             Utils.printBars(this.sorter.get_data(), this.maxValue);
         });
+
+        var randomListener = document.getElementById("random_button");
+        randomListener.addEventListener('click', () => {
+            //do the logic here, need to update Rust first.
+        });
     }
 }
