@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "outDir": "../js_auto_gen"
+    },
+    "files": [
+        "./main.ts",
+        "./utils.ts",
+        "./button_action.ts",
+    ]
+}
