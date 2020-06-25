@@ -42,6 +42,10 @@ impl Sorter {
         let data = self.data.clone();
         data
     }
+
+    pub fn update_data(&mut self, data: Vec<u32>) {
+        self.data = data;
+    }
 }
 
 impl Sorter {
