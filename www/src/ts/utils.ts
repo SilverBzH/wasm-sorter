@@ -18,9 +18,9 @@ export namespace Utils {
         }
     }
 
-    export function getRandomizeData(nb_data: number, max_value: number) : Uint32Array {
+    export function generateRandomData(nb_samples: number, max_value: number) : Uint32Array {
         let data = new Array();
-        for (var i=0 ; i<nb_data ; i++) {
+        for (var i=0 ; i<nb_samples ; i++) {
             let d = Math.floor(Math.random() * Math.floor(max_value));
             data.push(d); 
         }

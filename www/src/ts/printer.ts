@@ -5,6 +5,10 @@ import { Utils } from "./utils"
 // dropDownListener.addEventListener('click', function() {updateAlgoList()});
 
 export class Printer {
+
+    readonly NB_SAMPLE_MAX = 1000;
+    readonly MAX_VALUE_MAX = 1000*1000;
+
     sorter: Sorter;
     sortType: SortType;
     maxValue: number;
@@ -41,7 +45,11 @@ export class Printer {
 
         var randomListener = document.getElementById("random_button");
         randomListener.addEventListener('click', () => {
-            //do the logic here, need to update Rust first.
+            let nb_samples = Math.floor(Math.random() * Math.floor(this.NB_SAMPLE_MAX));
+            this.maxValue = Math.floor(Math.random() * Math.floor(this.MAX_VALUE_MAX));
+            let data = Utils.generateRandomData(nb_samples, this.maxValue);
+            this.sorter.update_data(data);
+            Utils.printBars(data, this.maxValue);
         });
     }
 }
