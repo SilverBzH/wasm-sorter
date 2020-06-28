@@ -6,14 +6,14 @@ import { Printer } from "./printer"
 let data = new Uint32Array();
 
 //default Init values, can be changed by the user later
-let nb_samples = 10;
+let nb_samples = 100;
 let maxValue = 500;
 data = Utils.generateRandomData(nb_samples, maxValue);
 Utils.printBars(data, maxValue);
 
 //Init Sorter and Printer
 let sorter = Sorter.new(data);
-let printer = new Printer(sorter, maxValue);
+let printer = new Printer(sorter, maxValue, data);
 
 //Updating algorithm via dropDowm menu button
 $(document).ready(function() {

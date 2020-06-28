@@ -12,14 +12,15 @@ export class Printer {
     sorter: Sorter;
     sortType: SortType;
     maxValue: number;
+    data: Uint32Array;
 
-
-    constructor(sorter: Sorter, maxValue: number) {
+    constructor(sorter: Sorter, maxValue: number, data: Uint32Array) {
         this.sorter = sorter;
         this.maxValue = maxValue;
         this.sortType = SortType.Bubble;
         this.initAlgoList();
         this.initEventListener();
+        this.data = data;
     }
 
     public setSortType(type: SortType) {
@@ -43,8 +44,7 @@ export class Printer {
         var startListener = document.getElementById("start_button");
         startListener.addEventListener('click', () => {
             console.log("Algo used: " + this.sortType);
-            this.sorter.run(this.sortType);
-            Utils.printBars(this.sorter.get_data(), this.maxValue);
+            this.updateAndPrintBars();
         });
 
         var randomListener = document.getElementById("random_button");
@@ -55,5 +55,29 @@ export class Printer {
             this.sorter.update_data(data);
             Utils.printBars(data, this.maxValue);
         });
+    }
+    
+    private async updateAndPrintBars() {
+        Utils.printBars(this.data, this.maxValue);
+        this.sorter.run(this.sortType);
+        let indexes: Uint32Array = this.sorter.get_bubble_indexes();
+        let nb_swap: number = indexes.length/2;
+        var j: number = 0;
+        for (var i=0 ; i<nb_swap ; i++) {
+            await this.delayedPrint(indexes[j], indexes[j+1]);
+            j+=2;
+        }
+    }
+
+    private async delayedPrint(index_a: number, index_b: number) {
+        await this.delay();
+        var temp = this.data[index_a];
+        this.data[index_a] = this.data[index_b];
+        this.data[index_b] = temp;
+        Utils.printBars(this.data, this.maxValue);
+    }
+
+    private async delay() {
+        return new Promise(resolve => setTimeout(resolve, 2));
     }
 }

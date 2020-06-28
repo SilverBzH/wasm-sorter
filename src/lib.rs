@@ -33,6 +33,7 @@ impl Sorter {
     }
 
     pub fn run(&mut self, sort_type: SortType) {
+        self.bubble_swap.clear();
         match sort_type {
             SortType::Bubble => {
                 Sorter::bubble_sort(self);
