@@ -14,3 +14,23 @@ Utils.printBars(data, maxValue);
 //Init Sorter and Printer
 let sorter = Sorter.new(data);
 let printer = new Printer(sorter, maxValue);
+
+//Updating algorithm via dropDowm menu button
+$(document).ready(function() {
+    console.log("jquery is ready");
+    $("#dropDown-sort a").click(function() {
+        let sortName: string = $(this).text();
+        console.log(sortName);
+        switch(sortName) {
+            case "Bubble":
+                printer.setSortType(SortType.Bubble);
+                break;
+            case "BubbleOptimizied":
+                printer.setSortType(SortType.BubbleOptimizied);
+                break;
+            default:
+                console.log("Unknown algorithm");
+                break;
+        }
+    });
+});

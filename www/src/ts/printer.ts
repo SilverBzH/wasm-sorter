@@ -22,6 +22,10 @@ export class Printer {
         this.initEventListener();
     }
 
+    public setSortType(sorter: SortType) {
+        this.sortType = sorter;
+    }
+
     private initAlgoList() {
         for (let algo in SortType) {
             if (isNaN(Number(algo))) {

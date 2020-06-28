@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/rustwasm/create-wasm-app#readme",
   "dependencies": {
+    "@types/jquery": "^3.5.0",
     "wasm-sorter": "file:../pkg"
   },
   "devDependencies": {
