@@ -22,8 +22,8 @@ export class Printer {
         this.initEventListener();
     }
 
-    public setSortType(sorter: SortType) {
-        this.sortType = sorter;
+    public setSortType(type: SortType) {
+        this.sortType = type;
     }
 
     private initAlgoList() {

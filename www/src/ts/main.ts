@@ -20,7 +20,6 @@ $(document).ready(function() {
     console.log("jquery is ready");
     $("#dropDown-sort a").click(function() {
         let sortName: string = $(this).text();
-        console.log(sortName);
         switch(sortName) {
             case "Bubble":
                 printer.setSortType(SortType.Bubble);
