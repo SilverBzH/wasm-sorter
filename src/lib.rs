@@ -19,12 +19,17 @@ pub enum SortType {
 #[wasm_bindgen]
 pub struct Sorter {
     data: Vec<u32>,
+    bubble_swap: Vec<u32>, // two index in a row need to be swapped, can send tuple through wasm
 }
 
 #[wasm_bindgen]
 impl Sorter {
     pub fn new(data: Vec<u32>) -> Sorter {
-        Sorter { data: data }
+        let bubble_swap = Vec::new();
+        Sorter {
+            data,
+            bubble_swap,
+        }
     }
 
     pub fn run(&mut self, sort_type: SortType) {
@@ -43,6 +48,12 @@ impl Sorter {
         data
     }
 
+    pub fn get_bubble_indexes(&mut self) -> Vec<u32> {
+        let indexes = self.bubble_swap.clone();
+        self.bubble_swap.clear();
+        indexes
+    }
+
     pub fn update_data(&mut self, data: Vec<u32>) {
         self.data = data;
     }
@@ -57,6 +68,8 @@ impl Sorter {
             for j in 0..length-1 {
                 if self.data[j+1] < self.data[j] {
                     self.data.swap(j, j+1);
+                    self.bubble_swap.push(j as u32);
+                    self.bubble_swap.push((j+1) as u32);
                 }
             }
         }
@@ -71,6 +84,8 @@ impl Sorter {
             for i in 0..length-1 {
                 if self.data[i+1] < self.data[i] {
                     self.data.swap(i, i+1);
+                    self.bubble_swap.push(i as u32);
+                    self.bubble_swap.push((i+1) as u32);
                     is_sorted = false;
                 }
             }
