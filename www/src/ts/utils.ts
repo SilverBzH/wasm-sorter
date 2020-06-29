@@ -35,7 +35,6 @@ export namespace Utils {
             document.querySelector(".canvas-progress-bar").appendChild(mother_div);
 
             if (i == index_a || i == index_b) {
-                console.log("Color index" + i + "to red");
                 $("#" + i.toString()).addClass("progress-bar-red");
             }
         }

@@ -6,7 +6,7 @@ import { Utils } from "./utils"
 
 export class Printer {
 
-    readonly NB_SAMPLE_MAX = 1000;
+    readonly NB_SAMPLE_MAX = 100;
     readonly MAX_VALUE_MAX = 1000*1000;
 
     sorter: Sorter;
@@ -49,9 +49,8 @@ export class Printer {
 
         var randomListener = document.getElementById("random_button");
         randomListener.addEventListener('click', () => {
-            let nb_samples = Math.floor(Math.random() * Math.floor(this.NB_SAMPLE_MAX));
             this.maxValue = Math.floor(Math.random() * Math.floor(this.MAX_VALUE_MAX));
-            let data = Utils.generateRandomData(nb_samples, this.maxValue);
+            let data = Utils.generateRandomData(this.NB_SAMPLE_MAX, this.maxValue);
             this.sorter.update_data(data);
             Utils.printBars(data, this.maxValue);
         });
