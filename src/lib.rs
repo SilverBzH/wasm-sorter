@@ -1,6 +1,7 @@
 mod utils;
 
 use wasm_bindgen::prelude::*;
+use rand::Rng;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -14,6 +15,7 @@ static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 pub enum SortType {
     Bubble,
     BubbleOptimizied,
+    QuickSort,
 }
 
 #[wasm_bindgen]
@@ -40,6 +42,11 @@ impl Sorter {
             },
             SortType::BubbleOptimizied => {
                 Sorter::bubble_sort_optimized(self);
+            },
+            SortType::QuickSort => {
+                let first_index: u32 = 0;
+                let last_index: u32 = self.data.len() as u32;
+                Sorter::quick_sort(self, first_index, last_index);
             }
         }
     }
@@ -92,6 +99,25 @@ impl Sorter {
             }
             if is_sorted { return; }
         }
+    }
+
+    fn quick_sort(&mut self, first_index: u32, last_index: u32) {
+        println!("QUICK SORT");
+        let length = self.data.len();
+        let first = self.data[0];
+        let last = self.data[length];
+        if first < last {
+            //random choice for pivot
+            let mut rng = rand::thread_rng();
+            let mut pivot: u32 = rng.gen_range(first_index.clone(), last_index.clone()); 
+            pivot = Sorter::fragment(&self.data, first_index.clone(), last_index.clone(), pivot.clone());
+            Sorter::quick_sort(self, first_index, pivot-1);
+            Sorter::quick_sort(self, pivot+1, last_index);
+        }
+    }
+
+    fn fragment(data: &Vec<u32>, first_index: u32, last_index: u32, pivot: u32) -> u32 {
+        
     }
 }
 
