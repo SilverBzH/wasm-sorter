@@ -16,7 +16,7 @@
 
 ## 🚴 Usage
 
-### 🛠️ Build with `wasm-pack build`
+### 🛠️ Build and run !
 
 ```
 ./install_build_and_run.sh
