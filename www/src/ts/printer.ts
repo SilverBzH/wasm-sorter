@@ -74,7 +74,7 @@ export class Printer {
         var temp = this.data[index_a];
         this.data[index_a] = this.data[index_b];
         this.data[index_b] = temp;
-        Utils.printBars(this.data, this.maxValue);
+        Utils.printBarsColoredIndex(this.data, this.maxValue, index_a, index_b);
     }
 
     private async delay() {

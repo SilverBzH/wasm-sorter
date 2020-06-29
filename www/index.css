@@ -3,3 +3,12 @@
     display: flex;
     justify-content: space-evenly;
 }
+
+#container_progress_bar {
+    transform: rotate(90deg);
+    margin-top: -240px;
+}
+
+.progress-bar-red {
+    background-color: red !important;
+}
