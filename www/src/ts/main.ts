@@ -17,7 +17,6 @@ let printer = new Printer(sorter, maxValue, data);
 
 //Updating algorithm via dropDowm menu button
 $(document).ready(function() {
-    console.log("jquery is ready");
     $("#dropDown-sort a").click(function() {
         let sortName: string = $(this).text();
         switch(sortName) {

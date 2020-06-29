@@ -51,6 +51,7 @@ export class Printer {
         randomListener.addEventListener('click', () => {
             this.maxValue = Math.floor(Math.random() * Math.floor(this.MAX_VALUE_MAX));
             let data = Utils.generateRandomData(this.NB_SAMPLE_MAX, this.maxValue);
+            this.data = data;
             this.sorter.update_data(data);
             Utils.printBars(data, this.maxValue);
         });

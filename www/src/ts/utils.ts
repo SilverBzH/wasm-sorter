@@ -21,7 +21,6 @@ export namespace Utils {
         //Clear the canvas first
         var canvas = document.getElementById("canvas");
         canvas.innerHTML = "";
-        
         //print the new canvas
         for (var i=0 ; i<data.length ; i++) {
             var mother_div = document.createElement("div");
