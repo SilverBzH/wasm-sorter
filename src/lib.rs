@@ -38,14 +38,17 @@ impl Sorter {
         self.bubble_swap.clear();
         match sort_type {
             SortType::Bubble => {
+                println!("BUBBLE SORT");
                 Sorter::bubble_sort(self);
             },
             SortType::BubbleOptimizied => {
+                println!("BUBBLE SORT OPTIMIZED");
                 Sorter::bubble_sort_optimized(self);
             },
             SortType::QuickSort => {
-                let first_index: u32 = 0;
-                let last_index: u32 = self.data.len() as u32;
+                println!("QUICK SORT");
+                let first_index = 0;
+                let last_index = self.data.len()-1;
                 Sorter::quick_sort(self, first_index, last_index);
             }
         }
@@ -69,7 +72,6 @@ impl Sorter {
 
 impl Sorter {
     fn bubble_sort(&mut self) {
-        println!("BUBBLE SORT");
         // let mut data_sorted = self.data.clone();
         let length = self.data.len();
         for _ in 0..length {
@@ -84,7 +86,6 @@ impl Sorter {
     }
 
     fn bubble_sort_optimized(&mut self) {
-        println!("BUBBLE SORT OPTIMIZED");
         let mut is_sorted;
         let length = self.data.len();
         for _ in 0..length {
@@ -101,23 +102,27 @@ impl Sorter {
         }
     }
 
-    fn quick_sort(&mut self, first_index: u32, last_index: u32) {
-        println!("QUICK SORT");
-        let length = self.data.len();
-        let first = self.data[0];
-        let last = self.data[length];
-        if first < last {
-            //random choice for pivot
-            let mut rng = rand::thread_rng();
-            let mut pivot: u32 = rng.gen_range(first_index.clone(), last_index.clone()); 
-            pivot = Sorter::fragment(&self.data, first_index.clone(), last_index.clone(), pivot.clone());
-            Sorter::quick_sort(self, first_index, pivot-1);
-            Sorter::quick_sort(self, pivot+1, last_index);
+    fn partition(&mut self, first_index: usize, last_index: usize) -> usize {
+        let pivot = self.data[last_index];
+        let mut i = first_index;
+        for j in first_index..last_index {
+            if self.data[j] < pivot {
+                self.data.swap(i, j);
+                i += 1;
+            }
         }
+        self.data.swap(i, last_index);
+        i
     }
 
-    fn fragment(data: &Vec<u32>, first_index: u32, last_index: u32, pivot: u32) -> u32 {
-        
+    fn quick_sort(&mut self, first_index: usize, last_index: usize) {
+        if first_index < last_index {
+            let pivot = Sorter::partition(self, first_index.clone(), last_index.clone());
+            let pivot_low = if pivot == 0 { 0 } else { pivot-1 };
+            let pivot_high = if pivot >= last_index { last_index } else { pivot+1 };
+            Sorter::quick_sort(self, first_index, pivot_low);
+            Sorter::quick_sort(self, pivot_high, last_index);
+        }
     }
 }
 
@@ -139,6 +144,18 @@ mod test {
         let mut data = vec![0,5,2,3,6,9,4,2,5,7,8,1,5,6];
         let mut sorter = Sorter::new(data.clone());
         sorter.run(SortType::BubbleOptimizied);
+        data.sort();
+        let sucess = if data == sorter.get_data() {true} else {false};
+        assert_eq!(sucess, true);
+    }
+
+    #[test]
+
+    fn quick_sort() {
+        let mut data = vec![0,5,2,3,6,9,4,2,5,7,8,1,5,6];
+        let mut sorter = Sorter::new(data.clone());
+        sorter.run(SortType::QuickSort);
+        println!("data: {:?}", data);
         data.sort();
         let sucess = if data == sorter.get_data() {true} else {false};
         assert_eq!(sucess, true);
