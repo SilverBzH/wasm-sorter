@@ -14,6 +14,7 @@ export class Printer {
     sortType: SortType;
     maxValue: number;
     data: Uint32Array;
+    isSorted: boolean;
 
     constructor(sorter: Sorter, maxValue: number, data: Uint32Array) {
         this.sorter = sorter;
@@ -22,6 +23,7 @@ export class Printer {
         this.initAlgoList();
         this.initEventListener();
         this.data = data;
+        this.isSorted = false;
     }
 
     public setSortType(type: SortType) {
@@ -44,8 +46,11 @@ export class Printer {
         //Add event listener on start button
         var startListener = document.getElementById("start_button");
         startListener.addEventListener('click', () => {
-            console.log("Algo used: " + this.sortType);
-            this.updateAndPrintBars();
+            if (!this.isSorted) {
+                console.log("Algo used: " + this.sortType);
+                this.updateAndPrintBars();
+                this.isSorted = true;
+            }
         });
 
         var randomListener = document.getElementById("random_button");
@@ -55,6 +60,7 @@ export class Printer {
             this.data = data;
             this.sorter.update_data(data);
             Utils.printBars(data, this.maxValue);
+            this.isSorted = false;
         });
     }
     
