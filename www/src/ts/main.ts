@@ -33,5 +33,6 @@ $(document).ready(function() {
                 console.log("Unknown algorithm");
                 break;
         }
+        document.getElementById("dropdownMenuButton").innerHTML = sortName;
     });
 });
