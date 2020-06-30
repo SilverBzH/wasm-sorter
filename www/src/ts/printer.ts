@@ -8,6 +8,7 @@ export class Printer {
 
     readonly NB_SAMPLE_MAX = 100;
     readonly MAX_VALUE_MAX = 1000*1000;
+    readonly DELAY         = 10; // ms
 
     sorter: Sorter;
     sortType: SortType;
@@ -60,7 +61,7 @@ export class Printer {
     private async updateAndPrintBars() {
         Utils.printBars(this.data, this.maxValue);
         this.sorter.run(this.sortType);
-        let indexes: Uint32Array = this.sorter.get_bubble_indexes();
+        let indexes: Uint32Array = this.sorter.get_swapped_indexes();
         let nb_swap: number = indexes.length/2;
         var j: number = 0;
         for (var i=0 ; i<nb_swap ; i++) {
@@ -78,6 +79,6 @@ export class Printer {
     }
 
     private async delay() {
-        return new Promise(resolve => setTimeout(resolve, 2));
+        return new Promise(resolve => setTimeout(resolve, this.DELAY));
     }
 }

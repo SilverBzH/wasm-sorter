@@ -26,6 +26,9 @@ $(document).ready(function() {
             case "BubbleOptimizied":
                 printer.setSortType(SortType.BubbleOptimizied);
                 break;
+            case "QuickSort":
+                printer.setSortType(SortType.QuickSort);
+                break;
             default:
                 console.log("Unknown algorithm");
                 break;

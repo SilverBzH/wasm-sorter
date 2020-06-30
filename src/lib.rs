@@ -21,21 +21,21 @@ pub enum SortType {
 #[wasm_bindgen]
 pub struct Sorter {
     data: Vec<u32>,
-    bubble_swap: Vec<u32>, // two index in a row need to be swapped, can send tuple through wasm
+    swapped_index: Vec<u32>, // two index in a row need to be swapped, can send tuple through wasm
 }
 
 #[wasm_bindgen]
 impl Sorter {
     pub fn new(data: Vec<u32>) -> Sorter {
-        let bubble_swap = Vec::new();
+        let swapped_index = Vec::new();
         Sorter {
             data,
-            bubble_swap,
+            swapped_index,
         }
     }
 
     pub fn run(&mut self, sort_type: SortType) {
-        self.bubble_swap.clear();
+        self.swapped_index.clear();
         match sort_type {
             SortType::Bubble => {
                 println!("BUBBLE SORT");
@@ -59,9 +59,9 @@ impl Sorter {
         data
     }
 
-    pub fn get_bubble_indexes(&mut self) -> Vec<u32> {
-        let indexes = self.bubble_swap.clone();
-        self.bubble_swap.clear();
+    pub fn get_swapped_indexes(&mut self) -> Vec<u32> {
+        let indexes = self.swapped_index.clone();
+        self.swapped_index.clear();
         indexes
     }
 
@@ -78,8 +78,8 @@ impl Sorter {
             for j in 0..length-1 {
                 if self.data[j+1] < self.data[j] {
                     self.data.swap(j, j+1);
-                    self.bubble_swap.push(j as u32);
-                    self.bubble_swap.push((j+1) as u32);
+                    self.swapped_index.push(j as u32);
+                    self.swapped_index.push((j+1) as u32);
                 }
             }
         }
@@ -93,8 +93,8 @@ impl Sorter {
             for i in 0..length-1 {
                 if self.data[i+1] < self.data[i] {
                     self.data.swap(i, i+1);
-                    self.bubble_swap.push(i as u32);
-                    self.bubble_swap.push((i+1) as u32);
+                    self.swapped_index.push(i as u32);
+                    self.swapped_index.push((i+1) as u32);
                     is_sorted = false;
                 }
             }
@@ -108,10 +108,14 @@ impl Sorter {
         for j in first_index..last_index {
             if self.data[j] < pivot {
                 self.data.swap(i, j);
+                self.swapped_index.push(i as u32);
+                self.swapped_index.push(j as u32);
                 i += 1;
             }
         }
         self.data.swap(i, last_index);
+        self.swapped_index.push(i as u32);
+        self.swapped_index.push(last_index as u32);
         i
     }
 
