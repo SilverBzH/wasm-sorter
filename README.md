@@ -20,7 +20,9 @@
 
 ```
 ./install_build_and_run.sh
-cd www/
+cd pkg/
+npm init
+cd ../www/
 npm run start
 ```
 Then launch a browser at http://localhost:8080/
