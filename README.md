@@ -1,30 +1,23 @@
-<div align="center">
+### Introduction
+Sort algorihm implement in rust, used in Typescript, print with html/css. 
 
-  <h1><code>wasm-sorter</code></h1>
-  <p>
-  Sort algorihm implement in rust, used in Js, print with html/css
-  </p>
-  <p>
-    <sub>Built with 🦀🕸</sub>
-  </p>
-</div>
+### 🦀 Rust and 🕸 Webassembly 
+* Install [Rust](https://www.rust-lang.org/tools/install).
+* Setup [Rust and Webassembly](https://rustwasm.github.io/docs/book/game-of-life/setup.html).
+* Learn [Rust](https://www.rust-lang.org/)
+* Learn [Rust + Webassembly](https://rustwasm.github.io/docs/book/introduction.html)
 
-## 📚 Read these documentation if you wish to learn how rust + webassembly work together! 📚
-
-[Rust](https://www.rust-lang.org/)
-[Rust + Webassembly](https://rustwasm.github.io/docs/book/introduction.html)
-
-## 🚴 Usage
-
-### 🛠️ Build and run !
+### 🛠️ Build
 
 ```
 ./install_build_and_run.sh
+```
+
+### 🚀 Launch
+```
 cd pkg/
 npm init
 cd ../www/
 npm run start
 ```
-Then launch a browser at http://localhost:8080/
-
-Enjoy !
+Then launch a browser at http://localhost:8080/.
