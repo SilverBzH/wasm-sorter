@@ -8,9 +8,14 @@ Sort algorihm implement in rust, used in Typescript, print with html/css.
 * Learn [Rust + Webassembly](https://rustwasm.github.io/docs/book/introduction.html)
 
 ### 🛠️ Build
-
+Linux:
 ```
-./install_build_and_run.sh
+./build.sh
+```
+
+Windows: 
+```
+./build.bat
 ```
 
 ### 🚀 Launch
