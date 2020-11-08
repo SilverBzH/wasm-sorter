@@ -1,0 +1,115 @@
+$bg-color: #e9ecef;
+$purple: #c56cf0;
+
+#bootstrap-override {
+    background-color: $bg-color;
+    font-family: 'Nunito', sans-serif;
+}
+
+.header {
+    .title {
+        text-align: center;
+        font-size: 5rem;
+        margin: 1em 3em;
+    }
+}
+
+.content {
+    .introduction {
+        .introduction-primary {
+            margin: 6em 0 7em 0;
+            background-color: $purple;
+            padding: 31px;
+            width: 1260px;
+            color: $bg-color;
+            border-radius: 15px;
+
+            .introduction-primary-title {
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 3rem;
+                margin: 1em 0 0.8em 0;
+            }
+
+            .introduction-primary-content {
+                font-size: 2.1rem;
+                margin-bottom: 1.1em;
+            }
+        }
+
+        .introduction-title-2 {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 3rem;
+            margin-bottom: 1.2em;
+        }
+
+        .introduction-content {
+            font-size: 1.8rem;
+            margin-bottom: 1.8em;
+        }
+    }
+}
+.graphic-part {
+    .graphic-part-header {
+        text-align: center;
+        margin-top: 2em;
+
+        .title {
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 3.6rem;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+        }
+    }
+
+
+    .first-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5em;
+
+        .btn-override {
+            margin: 1em 1.3em 0 1.3em;
+            font-size: 2.5rem;
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        .btn-sort {
+            background-color: $purple;
+            border-color: $purple;
+        }
+
+        .dropdown-item {
+            font-size: 2.4rem;
+        }
+    }
+
+    #container_progress_bar {
+        transform: rotate(-90deg);
+        position: absolute;
+        left: 23%;
+        width: 727px;
+        height: 793px;
+    }
+
+    .progress { 
+         border-radius: 0;
+    }
+
+    .progress-bar {
+        background-color: #0a3d62 !important;
+    }
+
+    .progress-bar-red {
+        background-color: #e55039 !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1337px;
+    }
+}

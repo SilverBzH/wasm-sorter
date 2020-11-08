@@ -1,43 +1,100 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Hello wasm-pack SORTER!</title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="index.css">
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="/src/css/index.css">
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1bb9241288.js" crossorigin="anonymous"></script>
 
-    
-    <div class="container"> 
-      <div class="first-row">
-        <button type="button" class="btn btn-primary" id="start_button">Sort</button>
-        <button type="button" class="btn btn-info" id="random_button">random</button>
-        <div class="dropdown" id="dropdown-algo">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sort Algorithm
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropDown-sort">
-          </div>
+</head>
+<body id="bootstrap-override">
+
+    <!--HEADER-->
+    <div class="container-fluid header">
+        <h1 class="title"><em><</em> Sorting algorithm implemented in <strong style="font-family:'Luckiest Guy', cursive;">Rust </strong><em>/></em></h1>
+        <hr />
+    </div>
+
+    <div class="container container-boostrap-overide">
+        <div class="content">
+            <div class="introduction">
+                <div class="introduction-primary">
+                    <h3 class="introduction-primary-title"><i class="far fa-question-circle"></i> Sorting algorythm, what is dis ? </h3>
+                    <p class="introduction-primary-content">
+                        A Sorting Algorithm is used to rearrange a given array or list elements according to a comparison operator on the elements.
+                        The comparison operator is used to decide the new order of element in the respective data structure.
+                    </p>
+                </div>
+                <h2 class="introduction-title-2">Bubble sorting</h2>
+                <p class="introduction-content">
+                    Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps through the list,
+                    <strong>compares adjacent elements</strong>  and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.<br />
+                    The algorithm, which is a comparison sort, is named for the way smaller or larger elements "bubble" to the top of the list.<br /> <br />
+                    <i class="fas fa-angle-right" style="color: #44bd32;"></i>  In real life, this simple algorithm performs poorly, it is used as an educational tool.
+                </p>
+                <h2 class="introduction-title-2">Quicksort</h2>
+                <p class="introduction-content">
+                    Quicksort is one of the most efficient sorting algorithms, and this makes of it one of the most used as well. The first thing to do is to select a
+                    <strong>pivot number</strong>, this number will separate the data, on its left are the numbers smaller than it and the greater numbers on the right.<br /> <br />
+                    <i class="fas fa-angle-right" style="color: #44bd32;"></i>  In real life, this simple algorithm performs poorly, it is used as an educational tool.
+                </p>
+                <br />
+            </div>
         </div>
-      </div>
     </div>
+    <div class="container-fluid graphic-part">
+        <hr />
+        <div class="graphic-part-header">
+            <h1 class="title"> Give them a try !</h1>
+            <p class="subtitle"> Select the sorting method you want to try.</p>
+        </div>
 
-    <div class="container" id="container_progress_bar">
-      <div class="canvas-progress-bar" id="canvas">
-      </div>
+        <div class="first-row">
+            <button type="button"
+                    class="btn btn-primary btn-override btn-sort"
+                    id="start_button">
+                    <i class="fas fa-chart-line"></i>
+                    Sort
+            </button>
+            <button type="button"
+                    class="btn btn-info btn-override btn-randomize"
+                    id="random_button">
+                    <i class="fas fa-dice"></i>
+                    Randomize
+            </button>
+            <div class="dropdown" id="dropdown-algo">
+                <button class="btn btn-success dropdown-toggle btn-override" 
+                        type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    <i class="fas fa-list"></i>
+                    Sorting method
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropDown-sort">
+                </div>
+            </div>
+        </div>
+
+        <div id="container_progress_bar">
+            <div class="canvas-progress-bar" id="canvas">
+            </div>
+        </div>
     </div>
-
     <!-- script js classic and bootstrap -->
     <script src="./bootstrap.js"></script>
-    
+
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
-  </body>
+</body>
 </html>
