@@ -1,5 +1,6 @@
 ### Introduction
 Sort algorihm implement in rust, used in Typescript, print with html/css. 
+You will need rust, wasm, npm and typescript installed on your machine.
 
 ### 🦀 Rust and 🕸 Webassembly 
 * Install [Rust](https://www.rust-lang.org/tools/install).
